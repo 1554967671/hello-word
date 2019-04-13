@@ -1,0 +1,55 @@
+<!--city.wxml-->
+<!-- 头部 -->
+<view class='showcity'>
+<scroll-view scroll-y="true" style='float:left;height:100%;' scroll-into-view="{{scrollId}}" scroll-with-animation="true" enable-back-to-top="true">
+  
+  <!-- 定位城市 -->
+  <view class="title" id='thiscity' catchtouchmove="tMove">定位城市</view>
+  <view class='cityname'  bindtap='selectCity' data-cityname='{{thisCity}}'>{{thisCity}}</view>
+  
+  <!-- 最近访问城市 -->
+  <view class='title pad_title' id='visitcity' catchtouchmove="tMove">最近访问城市</view>
+  <view class='cityname' wx:for="{{visitcity}}" bindtap='selectCity' data-cityname='{{item.cityname}}' wx:key="*cityname">{{item.cityname}}</view>
+  
+
+  <!-- 热门城市 -->
+  <view class='title pad_title' id='hotcity' catchtouchmove="tMove">热门城市</view>
+  <view class='cityname' wx:for="{{hotcity}}" bindtap='selectCity' data-cityname='{{item.cityname}}' wx:key="*cityname">{{item.cityname}}</view>
+
+
+  <!-- 城市列表 -->
+  <block wx:for="{{letter}}" wx:for-item="item" wx:key="*this">
+    <block wx:for="{{citylist}}" wx:for-item="city"  wx:key="*that">
+      <block wx:if="{{city.letter==item}}">
+        <view class="title {{item=='A'?'pad_title':''}}" id='{{item}}'>{{item}}</view>
+        <block wx:for="{{city.data}}" wx:for-item="citydata"  wx:for-index="index"  wx:key="*t">
+          <view class='citydata' style="{{index==city.data.length-1?'border:none;':''}}" 
+          wx:if="{{city.letter==item}}"  bindtap='selectCity' data-cityname='{{citydata.cityname}}'>{{citydata.cityname}}</view>
+        </block>
+      </block>
+    </block>
+  </block>
+</scroll-view>
+
+<!-- 位置选择 -->
+<view class='choose_cate'>
+  <view class="cate" bindtap='chooseCate' data-id='thiscity'>定位</view>
+  <view class='cate' bindtap='chooseCate' data-id='visitcity'>最近</view>
+  <view class='cate' bindtap='chooseCate' data-id='hotcity'>热门</view>
+  <block wx:for="{{letter}}" wx:key='*letter'>
+    <view class='cate letlist' bindtap='chooseCate' data-id='{{item}}'>{{item}}</view>
+  </block>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+

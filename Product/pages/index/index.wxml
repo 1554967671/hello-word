@@ -1,0 +1,141 @@
+<!--index.wxml-->
+<!-- 头部 -->
+<view class="index-head">
+  <view class="head-left">
+    <view class="show-city">
+      <image bindtap='getCity' src="../../img/address.png"></image>
+      <view bindtap='getCity' data-cityname='{{city}}' class="city">{{city}}</view>
+    </view>
+  </view>
+  <view class="head-mid">
+    <view class="mid-tab">
+      <view bindtap="isOpen" style="margin-left:30%;" class="choose-tab {{choose_tab==0?'choose-ok':''}}">正在上映</view>
+    </view>
+    <view class="mid-tab">
+      <view bindtap="willOpen" style="margin-left:10%;" class="choose-tab {{choose_tab==1?'choose-ok':''}}">即将上映</view>
+    </view>
+  </view>
+  <view class="head-right">
+    <view class="search">
+      <image src="../../img/search.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 轮播图区域 -->
+<view class="index-lb">
+  <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(220,220,220,.5)" indicator-active-color="white" circular="true" duration="1000">
+    <block wx:for="{{lbImgs}}" wx:key='*this'>
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 活动链接区域 -->
+<view class="index-active">
+  <view class="activity">
+    <label class="act-lab">挤爆</label>
+    <view class="activity-img">
+      <image src="../../img/act01.gif"></image>
+    </view>
+    <view class="activity-text">免费看电影</view>
+  </view>
+
+  <view class="activity">
+    <view class="activity-img">
+      <image src="../../img/act02.jpg"></image>
+    </view>
+    <view class="activity-text">签到必领券</view>
+  </view>
+
+  <view class="activity">
+    <view class="activity-img">
+      <image src="../../img/act03.gif"></image>
+    </view>
+    <view class="activity-text">送包月影票</view>
+  </view>
+
+  <view class="activity">
+    <view class="activity-img">
+      <image src="../../img/act04.jpg"></image>
+    </view>
+    <view class="activity-text">演出/赛事</view>
+  </view>
+
+</view>
+
+<!-- 限时推广区域 -->
+<view class="index-extend">
+  <view class="extend">
+    <image src="../../img/ad.jpg"></image>
+  </view>
+</view>
+
+<!-- 电影列表区域 -->
+<view class="being" style="{{choose_tab==1?'display:none;':''}}">
+  <block>
+    <view class="film" wx:for="{{films}}" wx:for-index="{{filmIndex}}" wx:for-item="item" wx:key='*that'>
+      <view class="film-bg">
+          <view class='film-img'>
+            <image src='{{item.pic}}'></image>
+          </view>
+          <view class='film-text'>
+            <view class='film-title'>
+              {{item.title}}
+              <view class='xd-imax' wx:if="{{item.type==2}}">
+                <view class='xd'>2D</view>
+                <view class='imax'>IMAX</view>
+              </view>
+              <view class='nd' wx:if="{{item.type==3}}">3D</view>
+              <view class='xd-imax' wx:if="{{item.type==4}}">
+                <view class='xd'>3D</view>
+                <view class='imax'>IMAX</view>
+              </view>
+              <!-- <view class='time-act' wx:if="{{item.isAct==1}}">活动</view> -->
+            </view>
+            <view class='film-score'>
+              <view class='no-score' wx:if="{{item.score==null || item.score==''}}">暂无评分</view>
+              <view class='score' wx:else>
+                <view style='float:left;color:#707070;'>搜啦评分:</view>
+                <view style='float:left;color:#FFC125;margin-left:4px;'>{{item.score}}</view>
+              </view>
+            </view>
+            <view class='film-actor'>
+              <view class='actor'>主演：{{item.actor}}</view>
+            </view>
+            <view class='film-note'>
+              <view class='note'>{{item.note}}</view>
+            </view>
+          </view>
+          <view class='film-btn'>
+            <view class='buy-btn'>购票</view>
+          </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="will" style="{{choose_tab==0?'display:none;':''}}">
+  <view></view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

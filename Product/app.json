@@ -1,0 +1,66 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/login/login",
+    "pages/home/home",
+    "pages/city/city"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为了方便"
+    }
+  },
+  "window":{
+    "backgroundTextStyle":"dark",
+    "backgroundColor":"#FAFAFA",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "电影演出赛事",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true
+    
+  },
+  "tabBar":{
+    "color":"#707070",
+    "selectedColor": "#FF4500",
+    "backgroundColor": "#FAFAFA",
+    "borderStyle": "black",
+    
+    "list":[
+      {
+        "selectedIconPath":"img/dianying1.png",
+        "iconPath":"img/dianying.png",
+        "pagePath":"pages/index/index",
+        "text":"电影"
+      },
+      {
+        "selectedIconPath":"img/yingyuan1.png",
+        "iconPath":"img/yingyuan.png",
+        "pagePath": "pages/home/home",
+        "text": "影院"
+      },
+      {
+        "selectedIconPath":"img/yanchu1.png",
+        "iconPath":"img/yanchu.png",
+        "pagePath":"pages/home/home",
+        "text":"演出"
+      },
+      {
+        "selectedIconPath": "img/saishi1.png",
+        "iconPath": "img/saishi.png",
+        "pagePath": "pages/home/home",
+        "text": "赛事"
+      },
+      {
+        "selectedIconPath": "img/wo1.png",
+        "iconPath": "img/wo.png",
+        "pagePath": "pages/login/login",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout":{
+    "request":10000,
+    "downloadFile":10000
+  }
+  
+}
