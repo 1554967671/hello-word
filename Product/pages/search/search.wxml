@@ -1,0 +1,30 @@
+<!--pages/search/search.wxml-->
+<view class='search_bd'>
+  <view class='search_in'>
+    <view class='search_icon'>
+      <image src='../../img/search01.png'></image>
+    </view>
+    <input class='in' type='text' placeholder='找电影、影院、演出' focus/>
+  </view>
+  <view class='cancel'>取消</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

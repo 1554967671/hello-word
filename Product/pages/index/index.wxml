@@ -16,7 +16,7 @@
     </view>
   </view>
   <view class="head-right">
-    <view class="search">
+    <view class="search" bindtap='search'>
       <image src="../../img/search.png"></image>
     </view>
   </view>
