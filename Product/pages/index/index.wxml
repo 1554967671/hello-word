@@ -24,7 +24,7 @@
 
 <!-- 轮播图区域 -->
 <view class="index-lb">
-  <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(220,220,220,.5)" indicator-active-color="white" circular="true" duration="1000">
+  <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(220,220,220,.5)" indicator-active-color="white" circular="true" duration="1000" interval="3000">
     <block wx:for="{{lbImgs}}" wx:key='*this'>
       <swiper-item>
         <image src="{{item}}"></image>
@@ -75,50 +75,93 @@
 
 <!-- 电影列表区域 -->
 <view class="being" style="{{choose_tab==1?'display:none;':''}}">
-  <block>
-    <view class="film" wx:for="{{films}}" wx:for-index="{{filmIndex}}" wx:for-item="item" wx:key='*that'>
-      <view class="film-bg">
-          <view class='film-img'>
-            <image src='{{item.pic}}'></image>
+  <view class="film" wx:for="{{films}}" wx:for-index="{{filmIndex}}" wx:for-item="item" wx:key='*that'>
+    <view class="film-bg">
+        <view class='film-img'>
+          <image src='{{item.pic}}'></image>
+        </view>
+        <view class='film-text'>
+          <view class='film-title'>
+            {{item.title}}
+            <view class='xd-imax' wx:if="{{item.type==2}}">
+              <view class='xd'>2D</view>
+              <view class='imax'>IMAX</view>
+            </view>
+            <view class='nd' wx:if="{{item.type==3}}">3D</view>
+            <view class='xd-imax' wx:if="{{item.type==4}}">
+              <view class='xd'>3D</view>
+              <view class='imax'>IMAX</view>
+            </view>
+            <!-- <view class='time-act' wx:if="{{item.isAct==1}}">活动</view> -->
           </view>
-          <view class='film-text'>
-            <view class='film-title'>
-              {{item.title}}
-              <view class='xd-imax' wx:if="{{item.type==2}}">
-                <view class='xd'>2D</view>
-                <view class='imax'>IMAX</view>
-              </view>
-              <view class='nd' wx:if="{{item.type==3}}">3D</view>
-              <view class='xd-imax' wx:if="{{item.type==4}}">
-                <view class='xd'>3D</view>
-                <view class='imax'>IMAX</view>
-              </view>
-              <!-- <view class='time-act' wx:if="{{item.isAct==1}}">活动</view> -->
-            </view>
-            <view class='film-score'>
-              <view class='no-score' wx:if="{{item.score==null || item.score==''}}">暂无评分</view>
-              <view class='score' wx:else>
-                <view style='float:left;color:#707070;'>搜啦评分:</view>
-                <view style='float:left;color:#FFC125;margin-left:4px;'>{{item.score}}</view>
-              </view>
-            </view>
-            <view class='film-actor'>
-              <view class='actor'>主演：{{item.actor}}</view>
-            </view>
-            <view class='film-note'>
-              <view class='note'>{{item.note}}</view>
+          <view class='film-score'>
+            <view class='no-score' wx:if="{{item.score==null || item.score==''}}">暂无评分</view>
+            <view class='score' wx:else>
+              <view style='float:left;color:#707070;'>搜啦评分:</view>
+              <view style='float:left;color:#FFC125;margin-left:4px;'>{{item.score}}</view>
             </view>
           </view>
-          <view class='film-btn'>
-            <view class='buy-btn'>购票</view>
+          <view class='film-actor'>
+            <view class='actor'>主演：{{item.actor}}</view>
           </view>
-      </view>
+          <view class='film-note'>
+            <view class='note'>{{item.note}}</view>
+          </view>
+        </view>
+        <view class='film-btn'>
+          <view class='buy-btn sm_btn'>购票</view>
+        </view>
     </view>
-  </block>
+  </view>
 </view>
 
 <view class="will" style="{{choose_tab==0?'display:none;':''}}">
-  <view></view>
+  <view class='want'>
+    <view class='want_title'>
+      <view class="want_text">近期最受欢迎</view>
+    </view>
+    <scroll-view scroll-x='true' style='width:100%;height:200px;white-space: nowrap;'>
+      <block wx:for='{{want_films}}' wx:key='*want' wx:for-index="index">
+        <view class='want_item' style="{{index==want_films.length-1?'width:132px;':''}}">
+          <view class='item_bg'>
+            <image src='{{item.pic}}'/>
+            <view class='item_name hidden_text'>{{item.title}}</view>
+            <view class='item_like hidden_text'>{{item.people}}人想看</view>
+            <view class='item_date hidden_text'>{{item.date}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class='break'></view>
+  <view class="film" wx:for="{{want_films}}" wx:for-index="{{filmIndex}}" wx:for-item="item" wx:key='*that'>
+    <view class="film-bg">
+        <view class='film-img'>
+          <image src='{{item.pic}}'></image>
+        </view>
+        <view class='film-text'>
+          <view class='film-title'>
+            {{item.title}}
+          </view>
+          <view class='film-score'>
+            <view class='score'>
+              <view style='float:left;color:#FFC125;'>{{item.people}}</view>
+              <view style='float:left;color:#707070;margin-left:4px;'>人想看</view>
+            </view>
+          </view>
+          <view class='film-actor'>
+            <view class='actor'>主演：{{item.actor}}</view>
+          </view>
+          <view class='film-note'>
+            <view class='note'>{{item.date}}大陆上映</view>
+          </view>
+        </view>
+        <view class='film-btn'>
+          <view class='want-btn sm_btn' wx:if='{{item.type==6}}'>想看</view>
+          <view class='yuding-btn sm_btn' wx:if='{{item.type==5}}'>预售</view>
+        </view>
+    </view>
+  </view>
 </view>
 
 
