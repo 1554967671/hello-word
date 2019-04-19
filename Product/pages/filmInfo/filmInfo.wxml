@@ -1,0 +1,92 @@
+<!--pages/filmInfo/filmInfo.wxml-->
+
+<!-- 电影信息 -->
+<view class='head'>
+  <!-- <view class='head_img' style="background-image:url({{film_img}});">    
+  </view> -->
+  <view class='head_bd'>
+    <view class='head-bd-top'>
+
+      <view class='top-left'>
+        <image src='{{film.pic}}' />
+      </view>
+      
+      <view class='top-mid'>
+        <view class='top-mid-bd'>
+          <view class='film-title'>{{film.title}}</view>
+          <view class='film-ename'>{{film.ename}}</view>
+          <view class='film-score' wx:if="{{film.scorenum !=''}}">
+            <view class='score'>{{film.score}}</view>
+            <view class='scorenum'>（{{film.scorenum}}人评）</view>
+          </view>
+          <view class='noscore' wx:else>暂无评论</view>
+          <view class="cate-type">
+            <view class='cate'>{{film.cate}}</view>
+            <view class='xd-imax' wx:if="{{film.type==2}}">
+              <view class='xd'>2D</view>
+              <view class='imax'>IMAX</view>
+            </view>
+            <view class='nd' wx:if="{{film.type==3}}">3D</view>
+            <view class='xd-imax' wx:if="{{film.type==4}}">
+              <view class='xd'>3D</view>
+              <view class='imax'>IMAX</view>
+            </view>
+          </view>
+          <view class="local_time hidden_text {{film.caidan!=''?'top_s':'top_h'}}">{{film.local}} / {{film.time}}分钟</view>
+          <view class="date hidden_text {{film.caidan!=''?'top_s':'top_h'}}">{{film.date}}大陆上映</view>
+          <view class="caidan hidden_text {{film.caidan!=''?'top_s':''}}" wx:if="{{film.caidan!=''}}">
+            <image src='../../img/caidan.png' />{{film.caidan}}
+          </view>
+        </view>
+      </view>
+      
+      <view class='top-right'>
+        <view class='right_btn'><image src='../../img/you.png' /></view>
+      </view>
+    </view>
+
+    <view class='head-bd-bottom'>
+      <view class='want_btn' bindtap='isWant' data-sign='{{film.isWant}}'>
+        <image class='want_btn_icon' src="{{film.isWant==0?'../../img/xin.png':'../../img/xin01.png'}}" />
+        <text class='want_btn_text' style="{{film.isWant==1?'color:red;':''}}">{{film.isWant==0?'想看':'已想看'}}</text>
+      </view>
+      <view class='score_btn'>
+        <image class='want_btn_icon' src='../../img/star.png' />
+        <text class='want_btn_text'>评分</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

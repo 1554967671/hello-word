@@ -22,36 +22,64 @@ Page({
     ],
     films:[//电影数据列表
       {
+        ida:1,
         pic:'../../img/fantanfengbao.jpeg',
         title:'反贪风暴4',
-        type:3,
+        ename:'P Storm',
+        cate:'剧情,动作,犯罪',
+        type:1,
         isAct:0,
+        isWant:0,
         score:'9.1',
+        scorenum: '240050',
         actor:'古天乐，郑嘉颖，林峯',
         note:'今天259家影院放映3578场',
+        date: '2019-04-04',
+        local:'中国香港,中国大陆',
+        time:'98',
+        caidan: ''
       },
       {
+        ida: 2,
         pic: '../../img/leitingshazan.jpg',
         title: '雷霆沙赞!',
+        ename: 'Shazam!',
+        cate: '动作,奇幻,冒险',
         type: 4,
         isAct: 1,
+        isWant: 0,
         score: '7.9',
+        scorenum:'103008',
         actor: '阿尤斯曼·库拉纳，塔布，拉迪卡·艾普特',
         note: '今天258家影院放映2189场',
+        date: '2019-04-15',
+        local: '美国',
+        time: '132',
+        caidan:'有两个彩蛋，分别在片尾字幕前、后出现'
       },
       {
+        ida: 3,
         pic: '../../img/tiaoyinshi.jpeg',
         title: '调音师',
+        ename: 'AndhaDhun',
+        cate: '悬疑,犯罪,喜剧',
         type: 1,
         isAct: 0,
+        isWant: 0,
         score: '',
+        scorenum: '',
         actor: '格莱高利·嘉德波瓦，格雷戈瓦·勒普兰斯-林盖，Danièle Lebrun',
         note: '今天251家影院放映1470场',
+        date: '2019-04-03 18:00',
+        local: '印度',
+        time: '137',
+        caidan: ''
       }
     ],
 
     want_films:[
       {
+        ida: 1,
         pic: '../../img/fuchou4.jpg',
         title: '复仇者联盟4：终局之战',
         people: '1536202',
@@ -60,6 +88,7 @@ Page({
         actor: '小罗伯特·唐尼，克里斯·埃文斯，马克·鲁法洛，克里斯·海姆斯沃斯，斯嘉丽·约翰逊，杰瑞米·雷纳，保罗·路德，布丽·拉尔森，汤姆·希德勒斯顿，汤姆·赫兰德，乔什·布洛林'
       },
       {
+        ida: 2,
         pic: '../../img/xiayiren.jpg',
         title: '下一任：前任',
         people: '182297',
@@ -68,6 +97,7 @@ Page({
         actor: '郭采洁，郑恺，李东学，谢依霖，刘心悠，邱欣怡，李荣浩，蓝心湄'
       },
       {
+        ida: 3,
         pic: '../../img/pikaqiu.jpg',
         title: '大侦探皮卡丘',
         people: '118262',
@@ -76,6 +106,7 @@ Page({
         actor: '瑞安·雷诺兹（配音），渡边谦，贾斯提斯·史密斯'
       },
       {
+        ida: 4,
         pic: '../../img/tiaoyinshi.jpeg',
         title: '调音师',
         people: '125380',
@@ -84,6 +115,7 @@ Page({
         actor: '格莱高利·嘉德波瓦，格雷戈瓦·勒普兰斯-林盖，Danièle Lebrun'
       },
       {
+        ida: 5,
         pic: '../../img/leitingshazan.jpg',
         title: '雷霆沙赞!',
         people: '95634',
@@ -92,6 +124,7 @@ Page({
         actor: '阿尤斯曼·库拉纳，塔布，拉迪卡·艾普特'
       },
       {
+        ida: 6,
         pic: '../../img/fantanfengbao.jpeg',
         title: '反贪风暴4',
         people: '195634',
@@ -272,8 +305,15 @@ Page({
     wx.navigateTo({
       url: '../search/search',
     })
-  }
+  },
 
+  filmInfo: function(e){
+    let dataset = e.currentTarget.dataset;
+    wx.setStorageSync("film", dataset.film);
+    wx.navigateTo({
+      url: '../filmInfo/filmInfo',
+    })
+  }
 
 
 

@@ -4,7 +4,8 @@
     "pages/login/login",
     "pages/home/home",
     "pages/city/city",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/filmInfo/filmInfo"
   ],
   "permission": {
     "scope.userLocation": {
