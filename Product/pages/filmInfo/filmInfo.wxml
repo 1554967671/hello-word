@@ -10,7 +10,7 @@
       <view class='top-left'>
         <image src='{{film.pic}}' />
       </view>
-      
+
       <view class='top-mid'>
         <view class='top-mid-bd'>
           <view class='film-title'>{{film.title}}</view>
@@ -39,16 +39,18 @@
           </view>
         </view>
       </view>
-      
+
       <view class='top-right'>
-        <view class='right_btn'><image src='../../img/you.png' /></view>
+        <view class='right_btn'>
+          <image src='../../img/you.png' />
+        </view>
       </view>
     </view>
 
     <view class='head-bd-bottom'>
       <view class='want_btn' bindtap='isWant' data-sign='{{film.isWant}}'>
         <image class='want_btn_icon' src="{{film.isWant==0?'../../img/xin.png':'../../img/xin01.png'}}" />
-        <text class='want_btn_text' style="{{film.isWant==1?'color:red;':''}}">{{film.isWant==0?'想看':'已想看'}}</text>
+        <text class='want_btn_text'>{{film.isWant==0?'想看':'已想看'}}</text>
       </view>
       <view class='score_btn'>
         <image class='want_btn_icon' src='../../img/star.png' />
@@ -58,13 +60,26 @@
   </view>
 </view>
 
+<!-- 时间轴 -->
+<view class='dateline'>
+  <scroll-view scroll-x='true' style="width:100%;height:100%;white-space: nowrap;">
+    <block wx:for="{{cinema}}" wx:key='*cinema'>
+      <view class='date_bd' bindtap='selectDate' data-date='{{item.date}}' 
+        style="{{item.date==select_date?'border-bottom: 2px solid red;color:red;':''}}">
+        {{item.date}}
+      </view>
+    </block>
+  </scroll-view>
+</view>
 
-
-
-
-
-
-
+<!-- 筛选条件 -->
+<view class='factors'>
+  <view class='city'></view>
+  <view class='line'></view>
+  <view class='brand'></view>
+  <view class='line'></view>
+  <view class='character'></view>
+</view>
 
 
 
