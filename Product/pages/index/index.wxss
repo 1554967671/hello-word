@@ -60,10 +60,10 @@
 .choose-tab{
   float:left;
   height: 48px;
-  width: 60%;
+  width: 70%;
   text-align: center;
   line-height: 51px;
-  font-size: 18px;
+  font-size:18px;
 }
 .choose-ok{
   color: #FF4500;
