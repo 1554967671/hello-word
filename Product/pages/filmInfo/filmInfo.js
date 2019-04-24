@@ -1,12 +1,12 @@
 // pages/filmInfo/filmInfo.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     film:{},
     select_date:'今天4月20日',
+    today_cinema:[],
     cinema:[
       {
         date:'今天4月20日',
@@ -21,30 +21,22 @@ Page({
               {
                 lab_id:1,
                 lab_text:'退',
-                lab_color:'',
-                lab_background:'',
-                lab_width:''
+                lab_color:'#79CDCD',
               },
               {
                 lab_id: 2,
                 lab_text: '改签',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#79CDCD',
               },
               {
                 lab_id: 3,
                 lab_text: '小吃',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#EEC900',
               },
               {
                 lab_id: 4,
                 lab_text: '折扣卡',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#EEC900',
               }
             ],
             card_info: '开卡特惠，首单2张立减4元',
@@ -60,9 +52,7 @@ Page({
               {
                 lab_id: 3,
                 lab_text: '小吃',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#EEC900',
               }
             ],
             card_info: '',
@@ -83,9 +73,7 @@ Page({
               {
                 lab_id: 3,
                 lab_text: '小吃',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#EEC900',
               }
             ],
             card_info:'',
@@ -106,9 +94,7 @@ Page({
               {
                 lab_id: 3,
                 lab_text: '小吃',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#EEC900',
               }
             ],
             card_info: '',
@@ -129,9 +115,7 @@ Page({
               {
                 lab_id: 3,
                 lab_text: '小吃',
-                lab_color: '',
-                lab_background: '',
-                lab_width: ''
+                lab_color: '#EEC900',
               }
             ],
             card_info: '',
@@ -177,6 +161,7 @@ Page({
     })
     vm.setData({
       film:film,
+      today_cinema:vm.data.cinema[0].cinema_list,
     });
   },
 

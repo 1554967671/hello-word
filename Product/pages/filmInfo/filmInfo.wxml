@@ -1,5 +1,4 @@
 <!--pages/filmInfo/filmInfo.wxml-->
-
 <!-- 电影信息 -->
 <view class='head'>
   <!-- <view class='head_img' style="background-image:url({{film_img}});">    
@@ -74,12 +73,47 @@
 
 <!-- 筛选条件 -->
 <view class='factors'>
-  <view class='city'></view>
-  <view class='line'></view>
-  <view class='brand'></view>
-  <view class='line'></view>
-  <view class='character'></view>
+  <view class='city'>
+    <text class='fac_text'>城市</text>
+    <image class='fac_img' src='../../img/sandown.png'></image>
+  </view>
+  <view class='line_bd'>
+    <view class='line'></view>
+  </view>
+  <view class='brand'>
+    <text class='fac_text'>品牌</text>
+    <image class='fac_img' src='../../img/sandown.png'></image>
+  </view>
+  <view class='line_bd'>
+    <view class='line'></view>
+  </view>
+  <view class='character'>
+    <text class='fac_text'>特色</text>
+    <image class='fac_img' src='../../img/sandown.png'></image>
+  </view>
 </view>
+
+<!-- 影院列表 -->
+<block wx:for="{{today_cinema}}" wx:for-index="{{cinemaIndex}}" wx:for-item="item" wx:key='*that'>
+  <view class='cinema_bd'>
+    <view class='cinema_bg'>
+      <view class='cinema'>
+        <view class='cinema_name'>{{item.cinema_name}}</view>
+        <view class='cinema_addr hidden_text'>{{item.cinema_addr}}</view>
+        <view class='cinema_lab'>
+          <block wx:for="{{item.cinema_lab}}" wx:for-index="{{labIndex}}" wx:for-item="label" wx:key="*lab">
+            <text class='lab_bd'style="color:{{label.lab_color}};border:1px solid {{label.lab_color}};">{{label.lab_text}}</text>
+          </block>
+        </view>
+        <view wx:if="{{item.card_info !=''}}" class='cinema_card'>
+          <view class='card_icon'>卡</view>
+          <text>{{item.card_info}}</text>
+        </view>
+      </view>
+      <view class='price_dis'></view>
+    </view>
+  </view>
+</block>
 
 
 
