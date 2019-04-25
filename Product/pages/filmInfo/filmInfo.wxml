@@ -94,14 +94,14 @@
 </view>
 
 <!-- 影院列表 -->
-<block wx:for="{{today_cinema}}" wx:for-index="{{cinemaIndex}}" wx:for-item="item" wx:key='*that'>
+<block wx:for="{{today_cinema}}" wx:for-item="item" wx:key='*that'>
   <view class='cinema_bd'>
     <view class='cinema_bg'>
       <view class='cinema'>
         <view class='cinema_name'>{{item.cinema_name}}</view>
         <view class='cinema_addr hidden_text'>{{item.cinema_addr}}</view>
         <view class='cinema_lab'>
-          <block wx:for="{{item.cinema_lab}}" wx:for-index="{{labIndex}}" wx:for-item="label" wx:key="*lab">
+          <block wx:for="{{item.cinema_lab}}" wx:for-item="label" wx:key="*lab">
             <text class='lab_bd'style="color:{{label.lab_color}};border:1px solid {{label.lab_color}};">{{label.lab_text}}</text>
           </block>
         </view>
@@ -109,8 +109,22 @@
           <view class='card_icon'>卡</view>
           <text>{{item.card_info}}</text>
         </view>
+        <view wx:if="{{item.recent.length > 0}}" class="recent {{item.card_info ==''?'recent_view':''}}">
+          <text>近期场次： </text>
+          <block wx:for="{{item.recent}}"  wx:for-index="index" wx:for-item="recent" wx:key="*recent">
+            <view class='recent_time'>{{recent}}</view>
+            <view wx:if="{{index != item.recent.length-1}}" class='shuxian'>|</view>
+          </block>
+        </view>
       </view>
-      <view class='price_dis'></view>
+      <view class='price_dis'>
+        <view class='price'>
+          <text style="font-size:18px;color:#DC143C;">{{item.price}}</text>
+          <text style="font-size:14px;color:#DC143C;">元</text>
+          <text style="font-size:14px;color:#696969;">起</text>
+        </view>
+        <view class='distance'>{{item.distance}}</view>
+      </view>
     </view>
   </view>
 </block>

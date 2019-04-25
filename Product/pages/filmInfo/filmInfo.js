@@ -43,7 +43,7 @@ Page({
             recent: ['11:05', '12:00', '14:00']
           },
           {
-            ida: 1,
+            ida: 2,
             cinema_name: '金逸影城(嘉域店)',
             cinema_addr: '宝安区公明街道松白路宏发嘉域花园一期商业裙楼2层',
             price: 40,
@@ -57,7 +57,38 @@ Page({
             ],
             card_info: '',
             recent: ['10:30', '11:05', '12:40']
-          }
+          },
+          {
+            ida: 3,
+            cinema_name: '期遇·UUE巨幕影城',
+            cinema_addr: '宝安区公明街道合水口马田北路31号新天地购物广场二楼',
+            price: 30.9,
+            distance: '2.4km',
+            cinema_lab: [ //电影院标签
+              {
+                lab_id: 2,
+                lab_text: '改签',
+                lab_color: '#79CDCD',
+              },
+              {
+                lab_id: 3,
+                lab_text: '小吃',
+                lab_color: '#EEC900',
+              },
+              {
+                lab_id: 4,
+                lab_text: '折扣卡',
+                lab_color: '#EEC900',
+              },
+              {
+                lab_id: 5,
+                lab_text: '巨幕厅',
+                lab_color: '#79CDCD',
+              },
+            ],
+            card_info: '开卡特惠，首单2张立减10元',
+            recent: ['11:05', '12:45', '13:45']
+          },
         ]
       },
       {
